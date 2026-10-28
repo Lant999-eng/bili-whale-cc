@@ -1,0 +1,11 @@
+# VoxCPM2 本地配音（可选）—— 装在【另一个】虚拟环境里，不是 .studio-venv（studio-setup 不装它）。要 NVIDIA 显卡（峰值显存 6GB 左右）。
+# 本机实测（2026-10-24，Windows 11 · RTX 4080 Laptop）：Python 3.12.10 · torch 2.11.0+cu128 · voxcpm 2.0.3 · soundfile 0.14.0
+#   py -3.12 -m venv D:\voxcpm\voxcpm-venv
+#   D:\voxcpm\voxcpm-venv\Scripts\python -m pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+#   D:\voxcpm\voxcpm-venv\Scripts\python -m pip install -r studio/requirements-voxcpm.txt
+# 模型 openbmb/VoxCPM2（代码和权重都是 Apache-2.0）下载到一个本地目录；渲染时不联网（worker 设了 HF_HUB_OFFLINE=1）。
+# 模型目录里有 Python 文件（tokenization_voxcpm2.py），加载权重也能执行代码 —— 放在她写不到的地方（config set 会拒绝她的家）。
+# 然后：node host/cli.mjs config set studio.voxcpm.python D:\voxcpm\voxcpm-venv\Scripts\python.exe
+#       node host/cli.mjs config set studio.voxcpm.model  D:\voxcpm\models\VoxCPM2
+voxcpm==2.0.3
+soundfile>=0.12

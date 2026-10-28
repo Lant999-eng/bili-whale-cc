@@ -1,0 +1,4 @@
+# 「听」用的依赖（node host/cli.mjs listen-setup 装进项目里的 .listen-venv；和 .studio-venv、VoxCPM 的环境分开）
+# sherpa-onnx：k2-fsa 的离线语音工具（Apache-2.0），只用 CPU；from_sense_voice 从 1.10.17 起有
+sherpa-onnx>=1.10.17,<2
+numpy>=1.24

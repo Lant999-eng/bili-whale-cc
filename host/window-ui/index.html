@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<title>bili-whale</title>
+<link rel="stylesheet" href="/window.css">
+<script type="module" src="/window.js"></script>
+</head>
+<body>
+<header id="top" class="top">
+  <span id="chip" class="chip wait">连接中</span>
+  <span class="turninfo">
+    <span id="kind" class="kind"></span>
+    <span id="timer" class="num"></span>
+    <span id="steps" class="num"></span>
+    <span id="meter" class="num meter"></span>
+  </span>
+  <button id="eye" type="button" class="eye" aria-pressed="false" title="录屏 / 共享屏幕时打开：她对你说的话先遮住"><span class="knob" aria-hidden="true"></span><span class="eye-t">遮住私话</span></button>
+</header>
+<div id="conn" class="conn" role="status" hidden></div>
+
+<section id="stage" class="stage" data-tod="night">
+  <div id="sprite" class="sprite">
+    <img id="sp-closed" class="frame" alt="bili-whale">
+    <img id="sp-open" class="frame mouth" alt="" aria-hidden="true" hidden>
+    <span id="zz" class="zz" aria-hidden="true"><i>z</i><i>z</i><i>z</i></span>
+    <span id="sp-none" class="sp-none" hidden>立绘没找到</span>
+  </div>
+  <div id="side" class="side">
+    <div id="bubble" class="bubble" aria-live="polite">
+      <p id="cap" class="cap">正在连上她…</p>
+      <p id="capsub" class="capsub" hidden></p>
+      <p id="captext" class="captext" hidden></p>
+    </div>
+    <div id="chips" class="chips"></div>
+    <a id="cover" class="cover" hidden><img id="cover-img" alt="她正在看的视频封面"></a>
+    <div id="idle" class="idle">
+      <p id="plan" class="plan" hidden></p>
+      <p id="queued" class="queued" hidden></p>
+      <p id="hostline" class="hostline"></p>
+      <div id="last" class="last" hidden></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tabs" role="tablist" aria-label="看什么">
+  <button id="tab-feed" type="button" class="tab on" role="tab" aria-selected="true" aria-controls="feedwrap">动态</button>
+  <button id="tab-chat" type="button" class="tab" role="tab" aria-selected="false" aria-controls="chatwrap">聊天<span id="chat-badge" class="badge" hidden></span></button>
+</nav>
+<main id="feedwrap" class="feedwrap" role="tabpanel" aria-labelledby="tab-feed">
+  <div id="feed" class="feed" role="log" aria-label="她的动态"></div>
+  <p id="feed-empty" class="feed-empty">还没有动态。她醒来以后，做的每件事都会一条条出现在这里。</p>
+  <button id="more" type="button" class="more" hidden></button>
+</main>
+<section id="chatwrap" class="feedwrap" role="tabpanel" aria-labelledby="tab-chat" hidden>
+  <div id="chatlog" class="chatlog" role="log" aria-label="你和她在小窗里的聊天"></div>
+  <p id="chat-empty" class="feed-empty">在下面打字跟她说话：你说的话会排进她的回合（插队），她回你的那段话显示在这里。每句大约 $0.1–0.6，二十秒到一分钟才回。</p>
+</section>
+
+<div id="dock" class="dock">
+  <div class="say-row">
+    <textarea id="say" class="say" rows="1" placeholder="跟她说点什么…（Enter 发送，Shift+Enter 换行）" aria-label="跟她说的话"></textarea>
+    <button id="send" type="button" class="send">发送</button>
+  </div>
+  <div class="dock-row">
+    <span id="say-st" class="say-st" role="status" aria-live="polite"></span>
+    <span class="dock-btns">
+      <button id="b-start" type="button" class="btn hot" hidden title="宿主没在跑：替你跑 node host/cli.mjs start">启动宿主</button>
+      <button id="b-wake" type="button" class="btn" title="现在就叫醒她跑一轮（和终端里的 wake 一样，一轮大约 $1）">叫醒她</button>
+      <button id="b-review" type="button" class="btn" title="审她交上来的视频 / 频道设定">审核<span id="review-badge" class="badge" hidden></span></button>
+    </span>
+  </div>
+</div>
+
+<footer id="today" class="today">
+  <div class="today-row"><b class="today-h">今天</b><span id="t-stats" class="stats"></span></div>
+  <div id="t-covers" class="covers" hidden></div>
+  <p id="t-review" class="review" hidden></p>
+</footer>
+
+<div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h" hidden>
+  <div class="sheet-top"><b id="sheet-h">等你审</b><button id="sheet-x" type="button" class="x" aria-label="关上">关上</button></div>
+  <div id="sheet-body" class="sheet-body"></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden>
+  <div class="toast-top"><b id="toast-h"></b><button id="toast-x" type="button" class="x">知道了</button></div>
+  <pre id="toast-out" class="toast-out"></pre>
+</div>
+</body>
+</html>

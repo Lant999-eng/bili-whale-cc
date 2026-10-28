@@ -1,0 +1,24 @@
+{
+  "name": "bili-whale-cc",
+  "version": "0.5.0",
+  "description": "养一条有日子的鱼（Claude Code 版）：给 Claude 一个 B站 账号，按作息自己刷、看懂视频、写两本日记，把值得的分享给你。移植自 dsh-bili-whale。",
+  "keywords": [
+    "claude-code",
+    "bilibili",
+    "agent",
+    "diary"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node host/cli.mjs start",
+    "whale": "node host/cli.mjs"
+  },
+  "license": "MIT",
+  "bin": {
+    "bili-whale": "host/cli.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

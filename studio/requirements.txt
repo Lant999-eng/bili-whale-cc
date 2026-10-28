@@ -1,0 +1,9 @@
+# bili-whale-cc 工作室（Python 3.10+）—— node host/cli.mjs studio-setup 会装进项目里的 .studio-venv
+# （VoxCPM 本地配音要 torch + CUDA，另装在别的虚拟环境里：见 requirements-voxcpm.txt，别加到这里）
+edge-tts>=7,<8                      # 微软 Edge 在线配音（带句级时间轴）
+pillow>=10                          # 字幕帧 / 封面
+imageio-ffmpeg>=0.5                 # 自带 ffmpeg（系统里有 ffmpeg 就优先用系统的）
+bilibili-api-python>=17.4.1,<18     # 投稿 / 数据
+aiohttp>=3.9
+qrcode>=7                           # 扫码登录她的 B站 号时画二维码（cookie --qr）；bilibili-api 本来也会带上，这里写明
+pypdf>=4                           # 参考材料（老师的讲义 PDF）抽文字：reference add 用；只读本地文件

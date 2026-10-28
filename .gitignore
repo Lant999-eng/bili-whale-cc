@@ -1,0 +1,48 @@
+# ── 凭据与运行账本（绝不能进仓库）──────────────────────────────
+credentials.json
+*.credentials.json
+quota.json
+replied.json
+whale-night.json
+whale-wake
+whale-log.jsonl
+bili-whale.config.json
+state.json
+
+# ── 她的日子（私人内容）────────────────────────────────────
+whale-diary*.md
+!templates/whale-diary*.md
+*.diary.md
+
+# ── 运行产物 ────────────────────────────────────────────
+shots/
+out/
+node_modules/
+*.mp4
+*.jpg
+*.png
+!examples/**/*.png
+
+# ── 本机/编辑器 ─────────────────────────────────────────
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# ── bili-whale-cc ──
+.studio-venv/
+.listen-venv/
+__pycache__/
+*.py[cod]
+
+# ── 本机的钥匙和数据目录（就算放进了仓库目录也别提交；templates/ 照常提交）──
+image-api-key
+.bili-ai/
+.bili-whale/
+whale-cc/
+whale-work/
+cookies*.json
+*.key
